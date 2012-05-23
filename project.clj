@@ -1,4 +1,4 @@
-(defproject lolg "0.0.1"
+(defproject lolg "0.1.0-SNAPSHOT"
   :description "Nice and easy logging for ClojureScript."
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [org.clojure/google-closure-library "0.0-790"]]
