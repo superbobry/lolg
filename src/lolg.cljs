@@ -29,7 +29,7 @@
   "Set the logging level of `logger` or `*default*` logger to `level`."
   ([level] (set-level *default* level))
   ([logger level]
-     {:pre [(keyword? level) (contains? level levels)]}
+     {:pre [(keyword? level) (contains? levels level)]}
      (.setLevel logger (get levels level))))
 
 (defn severe
