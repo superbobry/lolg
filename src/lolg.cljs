@@ -32,40 +32,47 @@
      {:pre [(keyword? level) (contains? levels level)]}
      (.setLevel logger (get levels level))))
 
+
+(defn -prpr [s]
+  "Pretty print a given ClojureScript term."
+  (if (string? s)
+    s
+    (pr-str s)))
+
 (defn severe
   "Write the message to the log with a logging level of `severe`."
   ([s] (severe *default* s))
-  ([logger s] (.severe logger s)))
+  ([logger s] (.severe logger (-prpr s))))
 
 (defn warning
   "Write the message to the log with a logging level of `warning`."
   ([s] (warning *default* s))
-  ([logger s] (.warning logger s)))
+  ([logger s] (.warning logger (-prpr s))))
 
 (defn info
   "Write the message to the log with a logging level of `info`."
   ([s] (info *default* s))
-  ([logger s] (.info logger s)))
+  ([logger s] (.info logger (-prpr s))))
 
 (defn config
   "Write the message to the log with a logging level of `config`."
   ([s] (config *default* s))
-  ([logger s] (.config logger s)))
+  ([logger s] (.config logger (-prpr s))))
 
 (defn fine
   "Write the message to the log with a logging level of `fine`."
   ([s] (config *default* s))
-  ([logger s] (.fine logger s)))
+  ([logger s] (.fine logger (-prpr s))))
 
 (defn finer
   "Write the message to the log with a logging level of `finer`."
   ([s] (finer *default* s))
-  ([logger s] (.finer logger s)))
+  ([logger s] (.finer logger (-prpr s))))
 
 (defn finest
   "Write the message to the log with a logging level of `finest`."
   ([s] (finest *default* s))
-  ([logger s] (.finest logger s)))
+  ([logger s] (.finest logger (-prpr s))))
 
 
 (defprotocol ILogViewer
